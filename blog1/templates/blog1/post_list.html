@@ -1,0 +1,27 @@
+<!-- Herdar base.html -->
+{% extends "blog1/base.html" %}
+
+<!-- Preencher o block "title" inserido no arquivo base.html -->
+{% block title %}Meu Blog{% endblock %}
+
+<!-- Preencher conteúdo do arquivo base.html -->
+{% block content %}
+    <!-- Loop que percorre as postagens do post_list e armazena na variável post. -->
+    {% for post in post_list %}
+    <article>
+        <h2>
+            <!-- Chamar um método (que tenha atributo self) não precisa dos parênteses. -->
+            <a href="{{ post.get_absolute_url }}">
+                {{ post.tittle }}
+            </a>
+        </h2>
+        <!-- Para usar variáveis deve ser usado duas chaves ao invés de chave + porcentagem. -->
+        <p class="date">
+            Publicado em {{ post.created }} por {{ post.author }}
+        </p>
+        <!-- linebreaks e truncatewords são filtros que podem ser usados em ordem.
+            Substitui quebras de linha por html, e mostra texto com máximo de 10 palavras. -->
+        {{ post.body|linebreaks|truncatewords:10 }}
+    </article>
+    {% endfor %}    
+{% endblock %}

@@ -1,0 +1,17 @@
+<!-- Herdar base.html -->
+{% extends "blog1/base.html" %}
+
+<!-- Preencher o block "title" inserido no arquivo base.html com título da postagem -->
+{% block title %} {{post.tittle}} {% endblock %}
+
+{% block content %}
+    <h2>{{ post.tittle }}</h2>
+    <!-- Para usar variáveis deve ser usado duas chaves ao invés de chave + porcentagem. -->
+    <p class="date">
+        Publicado em {{ post.created }} por {{ post.author }}
+    </p>
+    <!-- linebreaks é filtro que pode ser usado em ordem.
+        Substitui quebras de linha por html. -->
+    {{ post.body|linebreaks }}
+
+{% endblock %}

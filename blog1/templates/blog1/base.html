@@ -1,0 +1,22 @@
+<!-- Carrega o código onde está a variável "static" -->
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Bloco chamado title usado para inserir conteúdo através do Django -->
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'css/blog1.css' %}" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Luiz Fernando</h1>
+    </header>
+
+    <main>
+        <!-- Bloco chamado content usado para inserir conteúdo através do Django -->
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
